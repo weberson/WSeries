@@ -1,0 +1,23 @@
+﻿@model IEnumerable<WSeries.Core.Model.Show>
+
+
+@{
+    ViewBag.Title = "WSeries";
+}
+
+<div class="shows">
+    <h1>Shows</h1>
+    <ul>
+        @foreach (var show in Model)
+        {
+            <li>
+                <ul>
+                    <li>@show.Title</li>
+                    <li>@show.Year</li>
+                </ul>
+            </li>
+
+            <hr />
+        }
+    </ul>
+</div>
