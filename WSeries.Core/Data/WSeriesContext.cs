@@ -12,10 +12,16 @@ namespace WSeries.Core.Data
 {
     public class WSeriesContext : IWSeriesContext
     {
+        private ITraktIntegration _traktIntegration;
+
+        public WSeriesContext() 
+        {
+            _traktIntegration = new TraktIntegration();
+        }
+
         public async Task<List<Show>> SearchShowsAsync(string title)
         {
-            var trakt = new TraktIntegration();
-            var result = await trakt.SearchShow(title);
+            var result = await _traktIntegration.SearchShow(title);
             List<Show> shows = JsonConvert.DeserializeObject<List<Show>>((string)result);
 
             return shows;

@@ -18,11 +18,11 @@ namespace WSeries.Trakt
 
             using (var client = new HttpClient())
             {
-                string url = string.Format("{0}/search/movies.json/{1}/{2}", BASE_SERVER, API_KEY, title);
-                var result = await client.GetAsync(url);
+                string url = string.Format("{0}/search/shows.json/{1}/{2}", BASE_SERVER, API_KEY, title);
+                var result = client.GetAsync(url).Result;
                 if (result.IsSuccessStatusCode)
                 {
-                    var content = result.Content.ReadAsStringAsync();
+                    var content = await result.Content.ReadAsStringAsync();
                     shows = content;
                 }
             }

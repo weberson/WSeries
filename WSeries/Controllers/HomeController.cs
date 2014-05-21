@@ -22,7 +22,7 @@ namespace WSeries.Controllers
         public async Task<ActionResult> Index()
         {
             List<Show> model = new List<Show>();
-            using (var client = new HttpClient())
+            using (var client = new HttpClient() { Timeout = TimeSpan.FromMinutes(10) })
             {
                 var url = string.Format("{0}{1}", ConfigurationManager.AppSettings["ApiUrl"], "/Api/Shows");
                 var result = await client.GetAsync(url);

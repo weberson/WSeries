@@ -40,6 +40,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -103,9 +107,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System.Net.Http.Formatting">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.1.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
@@ -245,6 +246,10 @@
     <ProjectReference Include="..\WSeries.Core\WSeries.Core.csproj">
       <Project>{60deb263-1e4f-49cb-bc45-5f448c42b638}</Project>
       <Name>WSeries.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WSeries.Trakt\WSeries.Trakt.csproj">
+      <Project>{5538da52-081e-44a0-875d-e577b4ada9a9}</Project>
+      <Name>WSeries.Trakt</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
