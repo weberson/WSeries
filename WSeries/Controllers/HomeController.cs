@@ -19,21 +19,37 @@ namespace WSeries.Controllers
         public HomeController() 
         { }
 
-        public async Task<ActionResult> Index()
+        [HttpGet]
+        public ActionResult Index()
         {
-            List<Show> model = new List<Show>();
-            using (var client = new HttpClient())
-            {
-                var url = string.Format("{0}{1}", ConfigurationManager.AppSettings["ApiUrl"], "/Api/Shows");
-                var result = await client.GetAsync(url);
-                if (result.IsSuccessStatusCode)
-                {
-                    var content = await result.Content.ReadAsStringAsync();
-                    model = JsonConvert.DeserializeObject<List<Show>>(content);
-                }
-            }
+            return View();
+        }
 
-            return View(model);
+        [HttpPost]
+        public async Task<ActionResult> Index(FormCollection formCollection)
+        {
+            if (!string.IsNullOrEmpty(formCollection["Query"]))
+            {
+                var query = formCollection["Query"];
+                
+                List<Show> model = new List<Show>();
+                using (var client = new HttpClient())
+                {
+                    var url = string.Format("{0}/Api/Shows?query={1}", ConfigurationManager.AppSettings["ApiUrl"], query);
+                    var result = await client.GetAsync(url);
+                    if (result.IsSuccessStatusCode)
+                    {
+                        var content = await result.Content.ReadAsStringAsync();
+                        model = JsonConvert.DeserializeObject<List<Show>>(content);
+                    }
+                }
+
+                return View(model);
+            }
+            else
+            {
+                return View();
+            }
         }
 
         public ActionResult About()

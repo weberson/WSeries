@@ -18,9 +18,9 @@ namespace WSeries.Controllers
             _wSeriesContext = new WSeriesContext();    
         }
 
-        public IQueryable<Show> GetShows()
+        public IQueryable<Show> GetShows(string query)
         {
-            return _wSeriesContext.SearchShowsAsync("The Big Bang Theory").Result.AsQueryable();
+            return _wSeriesContext.SearchShowsAsync(query).Result.AsQueryable();
         }
     }
 }

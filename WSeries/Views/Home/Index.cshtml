@@ -7,6 +7,17 @@
 
 <div class="shows">
     <h1>Shows</h1>
+    
+    @using (Ajax.BeginForm("Index", "Home", FormMethod.Post, new AjaxOptions{}))
+    {
+        <div>
+            @Html.TextBox("Query")
+            <input type="submit" value="Search" />
+        </div>
+    }
+
+    @if(Model != null)
+    { 
     <ul>
         @foreach (var show in Model)
         {
@@ -20,4 +31,5 @@
             <hr />
         }
     </ul>
+    }
 </div>

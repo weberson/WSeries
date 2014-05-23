@@ -11,6 +11,7 @@ namespace WSeries.Trakt
     {
         internal const string BASE_SERVER = "http://api.trakt.tv";
         internal const string API_KEY = "90f39b4da1cbb3101b51e73d0f263197afbf5f6e";
+        internal const int LIMIT = 10;
 
         public async Task<object> SearchShow(string title)
         {
