@@ -7,30 +7,27 @@
 
 <div class="shows">
     <h1>Shows</h1>
-    
-    @using (Ajax.BeginForm("Index", "Home", FormMethod.Post, new AjaxOptions{}))
+
+    @using (Ajax.BeginForm("Index", "Home", FormMethod.Post, new AjaxOptions { }))
     {
         <div>
             @Html.TextBox("Query")
             <input type="submit" value="Search" />
+
+            <hr />
         </div>
     }
 
-    @if(Model != null)
-    { 
-    <ul>
-        @foreach (var show in Model)
+    @if (Model != null)
+    {
+        foreach (var show in Model)
         {
-            <li>
-                <ul>
-                    <li>@show.Title</li>
-                    <li>@show.Year</li>
-                </ul>
-                <img src="@show.Images.Poster" height="80" width="70" />
-            </li>
-
-            <hr />
+            <div class="result-show">
+                <img src="@show.Images.Poster" />
+                <text maxlength="20">@show.Title</text>
+                <text>@show.Year</text>
+            </div>
         }
-    </ul>
+
     }
 </div>

@@ -15,3 +15,28 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.shows {
+    display: inline-block;
+}
+
+.result-show {
+    float: left;
+    margin: 10px 0 0 20px;
+}
+
+.result-show img {
+    height: 180px;
+    width: 140px;
+}
+
+.result-show div {
+    font-weight: bold;
+    margin: 10px 0 0 20px;
+}
+
+.result-show text {
+    font-weight: bold;
+    display: block;
+
+}
